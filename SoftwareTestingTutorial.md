@@ -11,7 +11,9 @@ I won't write a book about software testing (mainly because I am no expert), but
 
 Imagine you sit down and try to define the requirements of your program. For simplicity, let's just say you define what it's supposed to output for every possible input. Now you can write some code that executes your original code, throws in some input, and alerts you if the output is not as expected. In a nutshell, this is what testing is all about (defining specs that your code should follow).
 
-`GoogleTest` just provides an easy way to write and run tests for your C/C++ code. A quick usage example for now will suffice (more details in later sections): You write some C code for defining a stack data structure, and functions like `push()` and `pop()`. Then you write a test, which creates a stack and executes the functions. It then makes sure that you do those operations correctly (such as checking for the size of your stack after x `push`'es, etc.) When you run the test, it prints out `PASSED` in green if the tests pass, and `FAILED` in red if the tests fail (it also gives you details on why it failed). Check the `StackTestSuccess.png` screenshot.
+`GoogleTest` just provides an easy way to write and run tests for your C/C++ code. A quick usage example for now will suffice (more details in later sections): You write some C code for defining a stack data structure, and functions like `push()` and `pop()`. Then you write a test, which creates a stack and executes the functions. It then makes sure that you do those operations correctly (such as checking for the size of your stack after x `push`'es, etc.) When you run the test, it prints out `PASSED` in green if the tests pass, and `FAILED` in red if the tests fail (it also gives you details on why it failed). Check the `StackTestSuccess.png` screenshot below.
+
+![Simple Stack Test Success](https://github.com/basheersubei/SoftwareTestingTutorial/blob/master/Screenshots/StackTestSuccess.png)
 
 ## Awesome Potential of Testing
 I hear you say: "so, what? I could've just written that test code into my main when I need to test it or used a boolean TEST flag and just ran my program."
