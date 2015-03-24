@@ -51,10 +51,10 @@ While GoogleTest should work fine with Windows, I don't have the time nor the in
 
 ## Notes about the example
  - Notice the code in `stackExample.c` only defines a stack and its functions, but doesn't do anything with it (there's no `main` function). I didn't include one because it's irrelevant to the tutorial. The point here is to test your functions and data structures.
- - Take a look at the tests in example_test. Look at the simpler ones first. Notice the first one named `StackTest.OneElementStack` just creates a stack with one element (a point), checks that the stack is not empty or null pointer, and checks that the value of top element (using peek) in the stack is the same we put in. Notice how it calls the code from stackExample.c directly, with no need for a main. These tests are effectively your main when you run the tests.
+ - Take a look at the tests in example_test. Look at the simpler ones first. Notice the first one named `StackTest.OneElementStack` just creates a stack with one element (an int), checks that the stack is not empty or null pointer, and checks that the value of top element (using peek) in the stack is the same we put in. Notice how it calls the code from stackExample.c directly, with no need for a main. These tests are effectively your main when you run the tests.
  - The actual "checking" part of the test are the `EXPECT_xxx` lines. These are just assertions. 
  - The second test creates a stack, pushes another element onto it, and then checks that the element (using peek) is the same as what we pushed in.
- - The third test is a more complicated test that generates random points, pushes them on the stack one by one, then pops them all one by one. At every step, it checks that the values are what we expect. That test was the only code I needed to debug the whole program, because once it passed, I knew the stack and its functions behaved the way I wanted (according to my test).
+ - The third test is a more complicated test that generates random ints, pushes them on the stack one by one, then pops them all one by one. At every step, it checks that the values are what we expect. That test was the only code I needed to debug the whole program, because once it passed, I knew the stack and its functions behaved the way I wanted (according to my test).
  - You might've noticed a bunch of GoogleTest compiled files in your directory (don't worry, just ignore these). You can clear your directory again by running `make clean` if you want to.
 
 ## How to use GoogleTest with your own code

@@ -74,75 +74,65 @@
 // </TechnicalDetails>
 
 TEST(StackTest, OneElementStack) {
-    // create a point
-    Point first_p = { .x = 0, .y = 1 };
+    // create an int
+    int n1 = 77;
 
-    // create a stack and put one point in it
-    Node* top = stack_initialize(first_p);
+    // create a stack and put one int in it
+    Node* top = stack_initialize(n1);
 
     // make sure the top pointer isn't null
     EXPECT_FALSE(top == NULL);
     // make sure the stack is not empty
     EXPECT_FALSE(is_empty(top));
 
-    // make sure the top element in stack is same as first_p
-    Point second_p = stack_peek(top);  // get top element
-    EXPECT_EQ(second_p.x, first_p.x);  // check that x values are same
-    EXPECT_EQ(second_p.y, first_p.y);  // check that y values are same
+    // make sure the top element in stack is same as n1
+    int n2 = stack_peek(top);  // get top element
+    EXPECT_EQ(n2, n1);  // check that int values are same
 }
 
 TEST(StackTest, PushOne) {
-    // create a point
-    Point first_p = { .x = 0, .y = 1 };
+    // create an int
+    int n1 = 77;
 
-    // create a stack and put one point in it
-    Node* top = stack_initialize(first_p);
+    // create a stack and put one int in it
+    Node* top = stack_initialize(n1);
 
-    // create point
-    Point second_p = { .x = 2, .y = 2 };
+    // create another int
+    int n2 = 25;
 
     // push it onto stack
-    stack_push(&top, second_p);
+    stack_push(&top, n2);
 
-    // now check that the top element is the same as second_p
-    Point p = stack_peek(top);
-    EXPECT_EQ(p.x, second_p.x);
-    EXPECT_EQ(p.y, second_p.y);
+    // now check that the top element is the same as n2
+    int n3 = stack_peek(top);
+    EXPECT_EQ(n3, n2);
 }
 
 TEST(StackTest, InitializeRandomStack) {
     srand(time(NULL));  // initialize random seed
 
-    // first, make two arrays of random ints, for x and y coordinates
+    // first, make an array of random ints
     int const ARRAY_SIZE = 1000;
-    int random_x[ARRAY_SIZE];
+    int random[ARRAY_SIZE];
     for (int i = 0; i < ARRAY_SIZE; i++)
-        random_x[i] = rand();
-    int random_y[ARRAY_SIZE];
-    for (int i = 0; i < ARRAY_SIZE; i++)
-        random_y[i] = rand();
+        random[i] = rand();
 
-    // then, initialize stack and fill it up with contents of random_x
-    Point first_p = { .x = random_x[0], .y = random_y[0] };
-    Node* top = stack_initialize(first_p);
+    // then, initialize stack and fill it up with contents of random
+    Node* top = stack_initialize(random[0]);
     EXPECT_FALSE(top == NULL);
     for (int i = 1; i < ARRAY_SIZE; i++) {
         // check stack is_empty not true
         EXPECT_FALSE(is_empty(top));
 
-        Point p = stack_peek(top);
         // check previous element
-        EXPECT_EQ(random_x[i-1], p.x);
-        EXPECT_EQ(random_y[i-1], p.y);
+        EXPECT_EQ(random[i-1], stack_peek(top));
 
-        Point p2 = { .x = random_x[i], .y = random_y[i] };
         // now add new element
-        stack_push(&top, p2);
+        stack_push(&top, random[i]);
     }
 
-    Point p = stack_peek(top);
-    EXPECT_EQ(random_x[ARRAY_SIZE-1], p.x);
-    EXPECT_EQ(random_y[ARRAY_SIZE-1], p.y);
+    int n = stack_peek(top);
+    EXPECT_EQ(random[ARRAY_SIZE-1], n);
 
 
     // now pop all elements and check contents, notice decrementing loop
@@ -150,10 +140,9 @@ TEST(StackTest, InitializeRandomStack) {
         // check stack is_empty not true
         EXPECT_FALSE(is_empty(top));
 
-        Point p = stack_peek(top);
+        int n = stack_peek(top);
         // check current element
-        EXPECT_EQ(random_x[i], p.x);
-        EXPECT_EQ(random_y[i], p.y);
+        EXPECT_EQ(random[i], n);
 
         // now pop an element
         stack_pop(&top);

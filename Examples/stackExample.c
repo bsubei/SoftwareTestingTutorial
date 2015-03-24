@@ -8,9 +8,9 @@
 #include "stackExample.h"
 
 // returns topmost node of stack initialized with element
-Node* stack_initialize(Point p) {
+Node* stack_initialize(int n) {
     Node* top = (Node *)malloc(sizeof(Node));
-    top->point = p;
+    top->number = n;
     top->next = NULL;
 
     return top;
@@ -22,10 +22,10 @@ int is_empty(Node* top) {
 }
 
 // places new element at the top of the stack
-void stack_push(Node** top, Point p) {
+void stack_push(Node** top, int n) {
     if (*top != NULL) {
         Node *new_top = (Node *)malloc(sizeof(Node));
-        new_top->point = p;
+        new_top->number = n;
         new_top->next = *top;
         *top = new_top;  // let old top point to top of stack
     }
@@ -41,8 +41,8 @@ void stack_pop(Node** top) {
 }
 
 // returns top element
-Point stack_peek(Node* top) {
-    return top->point;
+int stack_peek(Node* top) {
+    return top->number;
 }
 
 // deallocates all elements in stack and makes top point to NULL
