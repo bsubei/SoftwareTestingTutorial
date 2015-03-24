@@ -1,9 +1,9 @@
-[TOC]
 # Introduction
 This short tutorial will introduce some concepts about software testing, and how to get started with testing using the `GoogleTest` framework.
 
 ## GoogleTest? WTH?
-What is `GoogleTest`? From [their website](https://code.google.com/p/googletest/): It's just Google's framework for writing C++ tests.
+What is `GoogleTest`? From [their website](https://code.google.com/p/googletest/): It's just Google's framework for writing C++ tests. I highly recommend you use their [Primer tutorial](https://code.google.com/p/googletest/wiki/V1_7_Primer#Assertions) as you go along this tutorial.
+
 ## Tests?
 What do you mean "writing tests?" You mean a bunch of code that prints debug output that the programmer checks? Well, kind of. But think on a more efficient and larger scale, and the test checks the output for you (no more scrolling through endless lines of output crying about your decision to take up programming in the first place).
 
@@ -30,9 +30,35 @@ My response:
 
 4- [Test-driven Development](http://en.wikipedia.org/wiki/Test-driven_development). This might sound crazy, but a lot of times it's better to write the **tests first** before you write your actual **code**. It helps you define your requirements and input/output early on (before you get all caught up and distracted in an ugly mess of spaghetti code). Once you write down the tests, you know what your code should do, and so you can start working on writing per those specs. Of course, your tests would all fail at this point, but slowly, as you write your code, more and more tests will pass until you are all green. (best feeling in the world when all your tests go green!) :+1:
 
-# GoogleTest tutorial
+# GoogleTest Tutorial
 
-## Installation (using Makefiles)
+## Note about compatibility
+While GoogleTest should work fine with Windows, I don't have the time nor the interest to include Windows in this tutorial. Just use a Linux or Mac machine to follow along. It'll be good for you (need to learn how to use the terminal).
 
-## Examples (from CS 211 projects)
+## Project folder structure and files
+ - SoftwareTestingTutorial (root project folder)
+    - gtest-1.7.0 (folder that contains gtest source code)
+    - Examples (folder that contains example C/C++ code and tests)
+       - **stackExample.h**: header file that describes the definition of a stack and declares its functions (taken from my solution of [CS211](https://github.com/basheersubei/CS211) hw2)
+       - **stackExample.c**: source code file that defines those functions.
+       - **example_test.cc**: this is my test file. Inside of it, I define all the tests I will run. (don't worry about the `.cc` extension, it's pretty much the same as `.cpp` for C++).
+       - **Makefile**: the file that defines what needs to be compiled and how they are linked. Don't worry! You'll most likely never need to change this much (besides file names and such).
+
+## How to compile/run the example
+ - Navigate to the `Examples` folder using `cd Examples` command.
+ - Compile the tests and code using Makefile. Just run `make`.
+ - Now you can run the test executable (called example_test here). Just type in `./example_test` in the terminal.
+
+## Notes about the example
+ - Notice the code in `stackExample.c` only defines a stack and its functions, but doesn't do anything with it (there's no `main` function). I didn't include one because it's irrelevant to the tutorial. The point here is to test your functions and data structures.
+ - Take a look at the tests in example_test. Look at the simpler ones first. Notice the first one named `StackTest.OneElementStack` just creates a stack with one element (a point), checks that the stack is not empty or null pointer, and checks that the value of top element (using peek) in the stack is the same we put in. Notice how it calls the code from stackExample.c directly, with no need for a main. These tests are effectively your main when you run the tests.
+ - The actual "checking" part of the test are the `EXPECT_xxx` lines. These are just assertions. 
+ - The second test creates a stack, pushes another element onto it, and then checks that the element (using peek) is the same as what we pushed in.
+ - The third test is a more complicated test that generates random points, pushes them on the stack one by one, then pops them all one by one. At every step, it checks that the values are what we expect. That test was the only code I needed to debug the whole program, because once it passed, I knew the stack and its functions behaved the way I wanted (according to my test).
+ - You might've noticed a bunch of GoogleTest compiled files in your directory (don't worry, just ignore these). You can clear your directory again by running `make clean` if you want to.
+
+## How to use GoogleTest with your own code
+### Make a Makefile
+### Write your tests
+### Compile and run your tests
 
