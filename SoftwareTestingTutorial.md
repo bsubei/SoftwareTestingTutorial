@@ -33,7 +33,7 @@ My response:
 # GoogleTest Tutorial
 
 ## Note about compatibility
-While GoogleTest should work fine with Windows, I don't have the time nor the interest to include Windows in this tutorial. Just use a Linux or Mac machine to follow along. It'll be good for you (need to learn how to use the terminal).
+While GoogleTest should work fine with Windows, I don't have the time nor the interest to include Windows in this tutorial. Just use a Linux or Mac machine to follow along. It'll be good for you (need to learn how to use the terminal). This tutorial uses `Make` and `Makefile`s to build GoogleTest files, but advanced users can probably figure out other ways (like `CMake`).
 
 ## Project folder structure and files
  - SoftwareTestingTutorial (root project folder)
