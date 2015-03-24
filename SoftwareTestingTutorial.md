@@ -58,7 +58,21 @@ While GoogleTest should work fine with Windows, I don't have the time nor the in
  - You might've noticed a bunch of GoogleTest compiled files in your directory (don't worry, just ignore these). You can clear your directory again by running `make clean` if you want to.
 
 ## How to use GoogleTest with your own code
-### Make a Makefile
-### Write your tests
-### Compile and run your tests
+"Ok, but how do I use GoogleTest for my own code, not yours?" Pretty simple:
 
+### Make a Makefile
+ - First, modify your `Makefile` to compile the desired files you have. Just copy-paste the Makefile I have (as a matter of fact, just copy the entire folder while you're at it and replace my example code with your actual code).
+ - Then, replace the words "stackExample" with your code filename. The `Makefile` assumes you have a `.h` file as well.
+ - Now, replace the words "example_test" with your test's filename (or just leave it as it is if you're lazy).
+
+### Write your [tests](https://code.google.com/p/googletest/wiki/V1_7_Primer#Simple_Tests)
+ - You can copy-paste the `example_test` for now.
+ - Include your C code header file (don't leave it as `stackExample.h`). You don't need `cmath` or `limits.h` unless your tests use them (like with random numbers and stuff).
+ - Now, each of your tests will basically look like this:
+
+ 	TEST(FirstCaseTest, TestName) {
+ 	// do stuff here
+	}
+
+### Compile and run your tests
+ - Just type in `make` to compile, then run the executable. :smile:
