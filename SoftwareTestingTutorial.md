@@ -70,9 +70,9 @@ While GoogleTest should work fine with Windows, I don't have the time nor the in
  - Include your C code header file (don't leave it as `stackExample.h`). You don't need `cmath` or `limits.h` unless your tests use them (like with random numbers and stuff).
  - Now, each of your tests will basically look like this:
 
- 	TEST(FirstCaseTest, TestName) {
- 	// do stuff here
-	}
+ 		TEST(FirstCaseTest, TestName) {
+ 			// do stuff here
+		}
 
 ### Compile and run your tests
  - Just type in `make` to compile, then run the executable. :smile:
