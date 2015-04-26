@@ -85,8 +85,16 @@ While GoogleTest should work fine with Windows, I don't have the time nor the in
 ### Compile and run your tests
  - Just type in `make` to compile, then run the executable. :smile:
 
-# TODO
- - Look at testing for Java:
-    - JUnit (popular, possibly more common in industry)
-    - Cucumber (has cool name. Also, all the cool kids use it)
+# JUnit (for Java)
 
+## How to install and run a basic test
+The following steps come from this [UbuntuAnswers answer](http://askubuntu.com/a/120946/190889):
+
+ - Just install junit from apt-get if you're on Linux: `sudo apt-get install junit`
+ - Write your tests, then compile them in java and make sure you include your junit jar file in the classpath when compiling.
+ - Now run your code, including JUnitCore, and don't forget to include classpath again.
+
+## Example
+Let's say you want to compile and run the BasicTest.java test (found in Examples folder):
+ - Compile using `javac -cp /usr/share/java/junit4.jar TestBasic.java`
+ - Run the test using `java -cp /usr/share/java/junit4.jar:. org.junit.runner.JUnitCore TestBasic`
