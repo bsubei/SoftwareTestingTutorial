@@ -46,14 +46,15 @@ While GoogleTest should work fine with Windows, I don't have the time nor the in
 ## Project folder structure and files
  - SoftwareTestingTutorial (root project folder)
     - gtest-1.7.0 (folder that contains gtest source code)
-    - Examples (folder that contains example C/C++ code and tests)
+    - GoogleTestExamples (folder that contains example C/C++ code and tests)
        - **stackExample.h**: header file that describes the definition of a stack and declares its functions (taken from my solution of [CS211](https://github.com/basheersubei/CS211) hw2)
        - **stackExample.c**: source code file that defines those functions.
        - **example_test.cc**: this is my test file. Inside of it, I define all the tests I will run. (don't worry about the `.cc` extension, it's pretty much the same as `.cpp` for C++).
        - **Makefile**: the file that defines what needs to be compiled and how they are linked. Don't worry! You'll most likely never need to change this much (besides file names and such).
+    - JUnitExamples (folder with JUnit tests, ignore for this section).
 
 ## How to compile/run the example
- - Navigate to the `Examples` folder using `cd Examples` command.
+ - Navigate to the `GoogleTestExamples` folder using `cd GoogleTestExamples` command.
  - Compile the tests and code using Makefile. Just run `make`.
  - Now you can run the test executable (called example_test here). Just type in `./example_test` in the terminal.
 
@@ -95,6 +96,6 @@ The following steps come from this [UbuntuAnswers answer](http://askubuntu.com/a
  - Now run your code, including JUnitCore, and don't forget to include classpath again.
 
 ## Example
-Let's say you want to compile and run the BasicTest.java test (found in Examples folder):
+Let's say you want to compile and run the BasicTest.java test (found in JUnitExamples folder):
  - Compile using `javac -cp /usr/share/java/junit4.jar TestBasic.java`
  - Run the test using `java -cp /usr/share/java/junit4.jar:. org.junit.runner.JUnitCore TestBasic`
