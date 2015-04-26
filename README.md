@@ -99,3 +99,6 @@ The following steps come from this [UbuntuAnswers answer](http://askubuntu.com/a
 Let's say you want to compile and run the BasicTest.java test (found in JUnitExamples folder):
  - Compile using `javac -cp /usr/share/java/junit4.jar TestBasic.java`
  - Run the test using `java -cp /usr/share/java/junit4.jar:. org.junit.runner.JUnitCore TestBasic`
+
+## Shortcut method using Makefiles
+If you're tired of running these long terminal commands, you can just place them in a Makefile and type `make` instead. See the example Makefile in the JUnitExamples directory.
